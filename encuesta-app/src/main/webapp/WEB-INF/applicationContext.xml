@@ -17,6 +17,7 @@
           					http://jax-ws.dev.java.net/spring/servlet
          					https://jax-ws.java.net/spring/servlet.xsd">
          					
+   
     <context:annotation-config/>
     <!-- holding properties for database connectivity /-->
     <context:property-placeholder location="classpath:jdbc.properties"/>
@@ -54,6 +55,7 @@
 	<bean id="shaSalt" class="org.springframework.security.authentication.dao.ReflectionSaltSource">
 		<property name="userPropertyToUse" value="username"/>
 	</bean>
+	
      <context:component-scan base-package="org.encuesta"/>
      <!-- 
      <bean id="encuesta" class="org.encuesta.service.EncuestaService"/>

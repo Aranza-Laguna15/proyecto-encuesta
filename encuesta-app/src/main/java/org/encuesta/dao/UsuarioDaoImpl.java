@@ -57,10 +57,13 @@ public class UsuarioDaoImpl implements UsuarioDao{
 		}catch(Exception ex){}
 		return null;
 	}
-
+	
+	@Transactional(readOnly=true)
+	@SuppressWarnings("unchecked")
 	public List<Usuario> getlistaEliminados() {
-		// TODO Auto-generated method stub
-		return null;
+		System.out.println("hola 1");
+		String consulta="SELECT ud FROM  user_eliminados ud";
+		return em.createQuery(consulta).getResultList();  
 	}	
 
 }

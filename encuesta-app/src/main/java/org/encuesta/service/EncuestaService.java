@@ -1,6 +1,7 @@
 package org.encuesta.service;
 
 import java.util.Date;
+import java.util.List;
 
 import javax.jws.WebMethod;
 import javax.jws.WebParam;
@@ -9,6 +10,7 @@ import javax.jws.WebService;
 import org.encuesta.dao.EncuestaDao;
 import org.encuesta.dao.UsuarioDao;
 import org.encuesta.domain.Encuesta;
+import org.encuesta.domain.Usuario;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.encoding.ShaPasswordEncoder;
 
