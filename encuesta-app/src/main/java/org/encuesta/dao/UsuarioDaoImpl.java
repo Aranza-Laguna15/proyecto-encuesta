@@ -62,8 +62,9 @@ public class UsuarioDaoImpl implements UsuarioDao{
 	@SuppressWarnings("unchecked")
 	public List<Usuario> getlistaEliminados() {
 		System.out.println("hola 1");
-		String consulta="SELECT ud FROM  user_eliminados ud";
-		return em.createQuery(consulta).getResultList();  
+		String consulta="SELECT us FROM  users us";
+		List<Usuario> result=em.createQuery(consulta,Usuario.class).getResultList(); 
+		return result;
 	}	
 
 }

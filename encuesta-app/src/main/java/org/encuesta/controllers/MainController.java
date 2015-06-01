@@ -1,28 +1,18 @@
 package org.encuesta.controllers;
 
-import java.io.IOException;
-import java.util.HashMap;
-import java.util.Map;
-
-import javax.servlet.ServletException;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-
-import org.apache.commons.logging.Log;
-import org.apache.commons.logging.LogFactory;
-import org.encuesta.dao.UsuarioDao;
+import org.encuesta.dao.UsuarioDaoImpl;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.servlet.ModelAndView;
-import org.encuesta.domain.Usuario;
 import org.springframework.security.authentication.encoding.MessageDigestPasswordEncoder;
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+@RequestMapping("/")
 public class MainController {
 	@Autowired
-	private UsuarioDao usuarioDao;
+	private UsuarioDaoImpl usuarioDaoIm;
 	private MessageDigestPasswordEncoder encoder;
-	protected final Log logger = LogFactory.getLog(getClass());
 	
 	@RequestMapping(value="/index.htm",method=RequestMethod.GET)
 	public String adminIndex(){
@@ -38,20 +28,11 @@ public class MainController {
 		return "index";
 	}
 	
-	
-    @RequestMapping(value="/iniciousers.htm")
-    public ModelAndView handleRequest(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
-
-        logger.info("Returning iniciousers view");
-        
-        Map<String, Object> myModel = new HashMap<String, Object>();
-        myModel.put("users", this.usuarioDao.getlistaEliminados());
-        
-        return new ModelAndView("iniciousers","model", myModel);
+    @RequestMapping(value="/iniciousers.htm", method=RequestMethod.GET)
+    public String usuariosDelete(Model model){
+    	model.addAttribute("users", usuarioDaoIm.getlistaEliminados());
+       
+        return "iniciousers";
     }
-   public void setUsuarioDao(UsuarioDao userDao){
-	   this.usuarioDao=userDao;
-   }
 	
 }
