@@ -12,8 +12,9 @@ import org.springframework.transaction.annotation.Transactional;
 @Repository(value="usuarioDao")
 public class UsuarioDaoImpl implements UsuarioDao{
 
-	private EntityManager em;
-	@PersistenceContext
+	@PersistenceContext private EntityManager em;
+	
+	@Transactional
 	public void setEm(EntityManager em) {
 		this.em = em;
 	}
@@ -59,7 +60,6 @@ public class UsuarioDaoImpl implements UsuarioDao{
 	}
 	
 	@Transactional(readOnly=true)
-	@SuppressWarnings("unchecked")
 	public List<Usuario> getlistaEliminados() {
 		System.out.println("hola 1");
 		String consulta="SELECT us FROM  users us";

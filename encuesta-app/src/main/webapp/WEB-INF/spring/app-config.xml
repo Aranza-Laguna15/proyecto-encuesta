@@ -19,7 +19,8 @@
 </bean>         
  <!-- EntityManagerFactory -->
   <bean class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean" id="entityManagerFactory">
-    <property name="persistenceUnitName" value="persistenceUnit"/>
+   <!--  <property name="persistenceXmlLocation" value="classpath*:META-INF/persistence.xml"></property>-->
+    <property name="persistenceUnitName" value="encuestaPU"/> 
     <property name="dataSource" ref="dataSource"/>
   </bean>
    

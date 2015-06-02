@@ -57,12 +57,12 @@
 	</bean>
 	
      <context:component-scan base-package="org.encuesta"/>
-     <!-- 
+      
      <bean id="encuesta" class="org.encuesta.service.EncuestaService"/>
      <wss:binding url="/EncuestaService">
          <wss:service>
              <ws:service bean="#encuesta"/>
          </wss:service>        
      </wss:binding>
-      -->
+      
 </beans>

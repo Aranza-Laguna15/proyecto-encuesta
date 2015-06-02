@@ -6,8 +6,8 @@
   <context-param>
       <param-name>contextConfigLocation</param-name>
       <param-value>
-          /WEB-INF/spring/app-config.xml
-          /WEB-INF/applicationContext.xml
+        /WEB-INF/spring/app-config.xml
+           /WEB-INF/applicationContext.xml
       </param-value>
   </context-param>
  <servlet>
@@ -18,10 +18,10 @@
   </servlet>
    <servlet-mapping>
       <servlet-name>jaxws-servlet</servlet-name>
-      <url-pattern>/EncuestaService</url-pattern>
+      <url-pattern>/EncuestaService, /UsuarioService</url-pattern>
   </servlet-mapping>
   <servlet>
-    <servlet-name>encuesta</servlet-name>
+    <servlet-name>encuesta-dispatcher</servlet-name>
     <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
     <init-param>
        <param-name>contextConfigLocation</param-name>
@@ -30,7 +30,7 @@
     <load-on-startup>1</load-on-startup>
   </servlet>
   <servlet-mapping>
-    <servlet-name>encuesta</servlet-name>
+    <servlet-name>encuesta-dispatcher</servlet-name>
     <url-pattern>/</url-pattern>    
   </servlet-mapping>
   <welcome-file>
@@ -43,8 +43,8 @@
   </session-config>
   <listener>
       <listener-class>
-          org.springframework.web.context.ContextLoaderListener 
-          <!--org.springframework.web.util.Log4jConfigListener--> 
+          org.springframework.web.context.ContextLoaderListener
+          <!--org.springframework.web.util.Log4jConfigListener --> 
       </listener-class>
   </listener>
 </web-app>
